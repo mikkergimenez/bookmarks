@@ -33,8 +33,9 @@ class Messages extends Component {
   }
 
   render() {
+    var _this = this;
     let msgsjsx = this.state.convo.map(function(message, i){
-      return <Message msg={message} key={i} />
+      return <Message things={_this.props.things} msg={message} key={i} />
     });
     return (<div className='container-fluid'> {msgsjsx} </div> );
   }

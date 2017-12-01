@@ -1,8 +1,8 @@
 .add-field {
-  text-align: center;
   margin: auto;
   font-size: 30px;
   padding: 5px;
+  padding-left: .5em;
   height: 60px;
   width: 80%;
   border: 0;
@@ -22,4 +22,12 @@ body {
 .card {
   font-family: 'Inconsolata', monospace;
   margin-top: 2em;
+}
+
+
+.card a.actions {
+  visibility:hidden;
+}
+.card:hover a.actions {
+ visibility:visible;
 }

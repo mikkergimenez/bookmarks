@@ -28,10 +28,12 @@ class App extends Component {
     if (this.state.text === false) {
       alert('Invalid Submission');
       return;
-    }
+    };
+
     let message = {
       text: this.state.text,
     };
+
     //the store method will take our new message and store it in our
     //Rethink collection
     things.store(message);
@@ -46,7 +48,7 @@ class App extends Component {
           <h1>Add a thing</h1>
           <br />
           <form>
-            <input className="add-field" type="text" onChange={this.handleChangeText.bind(this)}></input>
+            <input className="add-field" type="text" onChange={this.handleChangeText.bind(this)} placeholder="add a thing"></input>
             <input onClick={this.sendMessage.bind(this)} className="add-field-submit btn btn-primary" type="submit"></input>
           </form>
         </center>
