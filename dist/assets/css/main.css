@@ -6,8 +6,10 @@
   height: 60px;
   width: 80%;
   border: 0;
-  border-bottom: 3px solid #007bff;
-  background-color: #e8e8e8;
+}
+
+.add-field:hover {
+  color: #000;
 }
 
 .add-field-submit {
