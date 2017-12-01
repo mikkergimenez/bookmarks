@@ -18,7 +18,8 @@
   border-radius: 0px 3px 3px 0px;
 }
 
-body {
+body a {
+  font-family: 'Inconsolata', monospace;
 }
 
 .card {

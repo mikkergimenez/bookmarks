@@ -45,12 +45,14 @@ class App extends Component {
         <center>
           <br />
           <br />
-          <h1>Add a thing</h1>
           <br />
           <form>
             <input className="add-field" type="text" onChange={this.handleChangeText.bind(this)} placeholder="add a thing"></input>
             <input onClick={this.sendMessage.bind(this)} className="add-field-submit btn btn-primary" type="submit"></input>
           </form>
+          <br />
+          <a href="#links">links</a> · <a href="#notes">notes</a>
+          <br />
         </center>
         <Messages things={things}/>
       </div>
