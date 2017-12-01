@@ -1,0 +1,18 @@
+.add-field {
+  text-align: center;
+  margin: auto;
+  font-size: 30px;
+  padding: 5px;
+  width: 80%;
+  border: 0;
+  border-bottom: 3px solid #777;
+  background-color: #e8e8e8;
+}
+
+body {
+}
+
+.card {
+  font-family: 'Inconsolata', monospace;
+  margin-top: 2em;
+}
