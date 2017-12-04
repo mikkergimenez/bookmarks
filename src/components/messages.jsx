@@ -35,9 +35,17 @@ class Messages extends Component {
   render() {
     var _this = this;
     let msgsjsx = this.state.convo.map(function(message, i){
-      return <Message things={_this.props.things} msg={message} key={i} />
+      return <Message viewType={_this.props.viewType} things={_this.props.things} msg={message} key={i} />
     });
-    return (<div className='container-fluid'> {msgsjsx} </div> );
+
+    if (this.props.viewType == "gallery") {
+      return (<div className="container-fluid">
+      <div className="row">
+        <span className="col-2"></span><span className="col-8"><div className='row'>{msgsjsx}</div></span><span className="col-2"></span></div>
+      </div>);
+
+    }
+    return (<div className='container-fluid'>{msgsjsx}</div> );
   }
 }
 export default Messages;

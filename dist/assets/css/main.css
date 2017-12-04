@@ -6,6 +6,7 @@
   height: 60px;
   width: 80%;
   border: 0;
+  background-color: #fafafa;
 }
 
 .add-field:hover {
@@ -20,13 +21,15 @@
 
 body a {
   font-family: 'Inconsolata', monospace;
+  color: #68B3AC;
 }
 
 .card {
   font-family: 'Inconsolata', monospace;
-  margin-top: 2em;
+  border: 0;
+  border-radius: 0px;
+  border-bottom: 1px solid rgba(0,0,0,.125);
 }
-
 
 .card a.actions {
   visibility:hidden;

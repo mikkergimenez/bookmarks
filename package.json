@@ -11,6 +11,7 @@
   "dependencies": {
     "@horizon/client": "^2.0.0",
     "anchorme": "^1.1.2",
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
