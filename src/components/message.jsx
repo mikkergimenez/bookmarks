@@ -38,6 +38,10 @@ export default class Message extends Component {
     this.props.things.remove(this.props.msg)
   }
 
+  updateMessage() {
+    
+  }
+
   description() {
     if (this.props.msg.description && this.props.msg.description.length > 0) {
       return (
@@ -56,6 +60,7 @@ export default class Message extends Component {
           <span className='card'>
             <span className="card-body">
               <span className='float-right'><a onClick={this.deleteMessage.bind(this)} className="actions" href=""><i className="fa fa-times" aria-hidden="true"></i></a></span>
+              <span className='float-right'><a onClick={this.updateMessage.bind(this)} className="actions" href=""><i className="fa fa-refresh" aria-hidden="true"></i></a></span>
               <span dangerouslySetInnerHTML={this.messageText()}></span>
               <div><b>{this.title()}</b></div>
             </span>
