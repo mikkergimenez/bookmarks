@@ -39,13 +39,13 @@ export default class Message extends Component {
   }
 
   updateMessage() {
-    
+
   }
 
   description() {
     if (this.props.msg.description && this.props.msg.description.length > 0) {
       return (
-        <div class="text-muted">
+        <div className="text-muted">
           <br />
           {this.props.msg.description}
         </div>
