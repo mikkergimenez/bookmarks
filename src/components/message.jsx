@@ -19,10 +19,28 @@ export default class Message extends Component {
     });
   }
 
+  formattedHipchat(string) {
+  var regex = /(\[[1-9][0-9]{0,1}\:[0-5][0-9]\ [AP]M\]) (.*?\: )/g;
+
+  var newString = string.replace(regex, "<br /><strong>$1</strong> <strong class=\"text-primary\">$2</strong>");
+
+  return "<span class=\"text-muted\">Hipchat Conversation</span>"+newString;
+  }
+
+  isHipchat(string) {
+    return /^\[[1-9][0-9]{0,1}\:[0-5][0-9]\ [AP]M\]/.test(string);
+  }
+
   messageText() {
     if (this.props.viewType == "list") {
+      if (this.isHipchat(this.props.msg.text)) {
+        console.log("Is Hipchat");
+        return { __html: this.formattedHipchat(this.props.msg.text) }
+      }
+      console.log("Is Not Hipchat");
       return { __html: this.getLink(this.props.msg.text) }
     }
+
 
     if (this.props.msg.text.endsWith(".png")) {
       return { __html: `<a href="${this.props.msg.text}"><img src="${this.props.msg.text}" width="100%"></a>` };
