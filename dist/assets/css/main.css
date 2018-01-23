@@ -9,6 +9,24 @@
   background-color: #fafafa;
 }
 
+.ql-container.ql-snow {
+  border: 0;
+}
+
+.add-field-textarea, .ql-container {
+  margin: auto;
+  font-size: 12px;
+  padding: 5px;
+  padding-left: 0;
+  height: 95vh;
+  max-width: 960px;
+  border: 0;
+  left: 1%;
+  right: 1%;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
 .add-field:hover {
   color: #000;
 }
@@ -34,6 +52,36 @@ body a {
 .card a.actions {
   visibility:hidden;
 }
+
 .card:hover a.actions {
  visibility:visible;
+}
+
+.card img {
+  width: 100%;
+}
+
+.container {
+  padding: 1em 1.5em;
+}
+
+.domain-list {
+  position: absolute;
+  font-size: 12px;
+  padding: 1em;
+  width: 25%;
+}
+
+.domain-list h4 {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.domain-list ul {
+  margin-left: 0;
+  padding-left: .5em;
+}
+
+.domain-list li {
+  list-style-type: none;
 }

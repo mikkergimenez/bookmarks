@@ -9,17 +9,22 @@ module.exports = {
     filename: './dist/bundle.js'
   },
   module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        plugins: ['transform-runtime'],
-        presets: ['es2015', 'stage-0', 'react'],
+    loaders: [
+      {
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0', 'react'],
+        }
+      }, {
+        test: /\.styl$/,
+        loader: 'css-loader!stylus-loader?paths=node_modules/stylus/'
       }
-    }]
+    ]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.styl']
   },
   devServer: {
     historyApiFallback: true,
