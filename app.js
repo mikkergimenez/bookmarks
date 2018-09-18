@@ -34,6 +34,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
+const noteController = require("./controllers/note")
 
 /**
  * API keys and Passport configuration.
@@ -48,6 +49,14 @@ const app = express();
 /**
  * Connect to MongoDB.
  */
+
+console.error(process.env.MONGODB_URI);
+
+if (!process.env.MONGODB_URI) {
+  console.error("MONGODB_URI not set")
+  process.exit()
+}
+
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.on('error', (err) => {
   console.error(err);
@@ -221,6 +230,21 @@ app.get('/auth/pinterest/callback', passport.authorize('pinterest', { failureRed
   res.redirect('/api/pinterest');
 });
 
+app.use(express.static('dist'))
+
+app.get('/assets/:name', function (req, res) {
+  var filename = req.params.name;
+  res.sendFile(__dirname + `/dist/${filename}`)
+});
+
+app.post('/note', noteController.create);
+app.put('/note/:id', noteController.update);
+app.delete('/note/:id', noteController.delete);
+app.get('/notes', noteController.index)
+app.get('/notes/domain/:domain', homeController.index);
+
+
+
 /**
  * Error Handler.
  */
@@ -238,7 +262,7 @@ if (process.env.NODE_ENV === 'development') {
  * Start Express server.
  */
 app.listen(app.get('port'), () => {
-  console.log('%s App is running at http://localhost:%d in %s mode', chalk.green('✓'), app.get('port'), app.get('env'));
+  console.log('%s Bookmarks App is running at http://localhost:%d in %s mode', chalk.green('✓'), app.get('port'), app.get('env'));
   console.log('  Press CTRL-C to stop\n');
 });
 
