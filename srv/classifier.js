@@ -29,9 +29,11 @@ const classify = function(text) {
   var type        = "text"
   if (isTodo(text)) {
     type = "todo"
-    pt = text.match(/todo ([A-Za-z0-9]+):.*/i);
+    pt = text.match(/todo ([A-Za-z0-9]+):\s*(.*)/i);
     if (pt) {
       tags = [pt[1]]
+      title = pt[2]
+      description = pt[2]
     }
   } else if (isHipchat(text)) {
     type  = "hipchat"
@@ -49,7 +51,7 @@ const classify = function(text) {
     text: title,
     tags: tags,
     type: type,
-    description: text,
+    description: description,
     domain: domain,
   }
 

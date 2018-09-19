@@ -30,11 +30,12 @@ dotenv.load({ path: '.env.example' });
 /**
  * Controllers (route handlers).
  */
-const homeController = require('./controllers/home');
-const userController = require('./controllers/user');
-const apiController = require('./controllers/api');
+const apiController     = require('./controllers/api');
 const contactController = require('./controllers/contact');
-const noteController = require("./controllers/note")
+const homeController    = require('./controllers/home');
+const noteController    = require('./controllers/note');
+const syncController    = require('./controllers/sync');
+const userController    = require('./controllers/user');
 
 /**
  * API keys and Passport configuration.
@@ -243,6 +244,8 @@ app.delete('/note/:id', noteController.delete);
 app.get('/notes', noteController.index)
 app.get('/notes/domain/:domain', homeController.index);
 
+app.get('/sync', syncController.index);
+app.post('/sync', syncController.sync);
 
 
 /**

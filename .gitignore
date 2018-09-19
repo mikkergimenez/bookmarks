@@ -8,6 +8,8 @@ lib-cov
 *.gz
 *.swp
 
+backup/*
+
 pids
 logs
 results

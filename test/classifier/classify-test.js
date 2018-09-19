@@ -74,6 +74,7 @@ describe('Classify', function() {
     hash = classify("toDo dinner: make cookies")
     expect(hash.type).to.eql("todo");
     expect(hash.tags).to.eql(["dinner"]);
+    expect(hash.text).to.eql("make cookies")
     done();
   })
 

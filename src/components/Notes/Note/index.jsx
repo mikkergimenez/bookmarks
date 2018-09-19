@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
   var formatter = factory.createFormatter(type, ownProps.note, ownProps.viewType)
 
   return {
-    editing: false,
     tags: formatter.tags,
     text: { __html: formatter.text },
     type: formatter.type,
@@ -31,13 +30,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    editNote: (ev) => {
-      ev.preventDefault();
-      ownProps.editing = true;
-    },
-    saveNote: (ev) => {
-      ev.preventDefault();
-      dispatch(editNote(ownProps.note._id));
+    saveNote: (title, description) => {
+      dispatch(editNote(ownProps.note._id, title, description));
     },
     deleteNote: (ev) => {
       ev.preventDefault();
