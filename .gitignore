@@ -9,6 +9,7 @@ lib-cov
 *.swp
 
 backup/*
+dist/*
 
 pids
 logs
