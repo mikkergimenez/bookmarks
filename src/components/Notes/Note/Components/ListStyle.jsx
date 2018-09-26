@@ -10,6 +10,7 @@ class ListStyle extends Component {
       title:        this.props.title,
     };
 
+    this.closeEdit    = this.closeEdit.bind(this);
     this.editNote     = this.editNote.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -19,8 +20,13 @@ class ListStyle extends Component {
     this.setState({
       editing: true,
     });
+  }
 
-    console.log(this.state);
+  closeEdit(ev) {
+    ev.preventDefault();
+    this.setState({
+      editing: false,
+    });
   }
 
   handleTitleChange() {
@@ -41,7 +47,7 @@ class ListStyle extends Component {
   }
 
   render() {
-    var tandDField;
+    var editDeleteButtons, tandDField;
 
     if (this.state.editing) {
       tandDField = (
@@ -70,6 +76,23 @@ class ListStyle extends Component {
         </div>);
     }
 
+    if (this.state.editing) {
+      editDeleteButtons = (
+        <div>
+          <span><a data-toggle="tooltip" title="Hooray!" onClick={() => this.props.setInput("note", this.props)} className="actions" href=""><i className="fa fa-file" aria-hidden="true"></i></a></span>
+          <span><a data-toggle="tooltip" title="Hooray!" onClick={this.closeEdit} className="actions" href=""><i className="fa fa-times" aria-hidden="true"></i></a></span>
+        </div>
+      );
+    } else {
+      editDeleteButtons = (
+        <div>
+          <span><a data-toggle="tooltip" title="Hooray!" onClick={this.editNote} className="actions" href=""><i className="fa fa-edit" aria-hidden="true"></i></a></span>
+          <span><a data-toggle="tooltip" title="Hooray!" onClick={this.props.deleteNote} className="actions" href=""><i className="fa fa-trash" aria-hidden="true"></i></a></span>
+        </div>
+      );
+    }
+
+
     return (<div className='row'>
       <div className='col-8 offset-2 card'>
         <div className="card-body">
@@ -80,8 +103,7 @@ class ListStyle extends Component {
         </div>
         <div className='icon-set float-right'>
           <div>
-            <span><a onClick={this.editNote} className="actions" href=""><i className="fa fa-edit" aria-hidden="true"></i></a></span>
-            <span><a onClick={this.props.deleteNote} className="actions" href=""><i className="fa fa-times" aria-hidden="true"></i></a></span>
+            {editDeleteButtons}
           </div>
           <div>
             <span className="text-warning">{this.props.type}</span>

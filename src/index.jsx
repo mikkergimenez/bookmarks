@@ -8,13 +8,11 @@ import { Route } from 'react-router'
 
 import { ConnectedRouter } from 'react-router-redux'
 
-
-
-
-
 import { setCSRF } from './actions/index';
 
 import store from './store';
+
+var css = require('./main.styl');
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory()
@@ -42,21 +40,3 @@ ReactDOM.render(
   </Provider>,
   document.querySelector('.attach')
 )
-
-// <Route path="/about" component={About}/>
-// <Route path="/topics" component={Topics}/>
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-//
-//
-// import { BrowserRouter } from 'react-router-dom'
-//
-// var css = require('./main.styl');
-//
-// ReactDOM.render(
-//   <BrowserRouter>
-//     <App/>
-//   </BrowserRouter>
-//   , document.querySelector('.attach')
-// );

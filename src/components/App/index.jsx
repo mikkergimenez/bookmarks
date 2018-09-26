@@ -14,44 +14,15 @@ function handleChangeText(ev) {
   });
 }
 
-// function setInput(inputType) {
-//   var _this = this;
-//   this.setState({
-//     inputType: inputType
-//   }, function() {
-//     if (inputType == "note") {
-//       var options = {
-//         placeholder: 'Note Here',
-//         readOnly: false,
-//         theme: 'snow'
-//       };
-//
-//       var container = document.getElementById('add-field-textarea');
-//       var editor = new Quill(container, options);
-//
-//       editor.on('text-change', function(delta, oldDelta, source) {
-//         _this.handleNoteChangeText();
-//         // if (source == 'api') {
-//         //
-//         // } else if (source == 'user') {
-//         //   console.log("A user action triggered this change.");
-//         // }
-//       });
-//     }
-//   });
-//
+// function compare(a,b) {
+//   if (a.created_at < b.created_at) {
+//     return -1;
+//   }
+//   if (a.created_at > b.created_at) {
+//     return 1;
+//   }
+//   return 0;
 // }
-
-
-function compare(a,b) {
-  if (a.created_at < b.created_at) {
-    return -1;
-  }
-  if (a.created_at > b.created_at) {
-    return 1;
-  }
-  return 0;
-}
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -63,8 +34,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    setInput: (input) => {
-      dispatch(setInput(input))
+    setInput: (input, obj) => {
+      console.log("Setting Input to " + input)
+      console.log("Setting Obj to " + obj)
+      obj = obj || null;
+      dispatch(setInput(input, obj))
     },
     setFilter: (filterVal) => {
       dispatch(setFilter(filterVal))

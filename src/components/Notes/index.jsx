@@ -31,11 +31,16 @@ function getNotes(notes, viewFilter) {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log("HAHAHAAHAHHA")
+  console.log(ownProps);
+  console.log(ownProps.setInput);
+
   return {
     notes: getNotes(state.notes, state.config.filter),
     inputType: state.config.input,
     viewType: state.config.view,
     filterType: state.config.filter,
+    setInput: ownProps.setInput
   }
 }
 

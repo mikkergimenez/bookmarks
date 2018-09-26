@@ -20,7 +20,7 @@ const AppComponent = ({ notes, inputType, viewType, filterType, setInput, setFil
   } else {
     input       = <BookmarkField />;
     saveButton  = <div></div>;
-    notesList   = <Notes viewType={viewType} />
+    notesList   = <Notes viewType={viewType} setInput={setInput} />
   }
 
   return (

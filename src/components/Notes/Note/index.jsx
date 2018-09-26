@@ -15,7 +15,6 @@ const mapStateToProps = (state, ownProps) => {
   var factory = new FormatterFactory();
 
   var formatter = factory.createFormatter(type, ownProps.note, ownProps.viewType)
-
   return {
     tags: formatter.tags,
     text: { __html: formatter.text },
@@ -23,6 +22,7 @@ const mapStateToProps = (state, ownProps) => {
     title: formatter.title,
     domain: ownProps.note.domain,
     description: { __html: formatter.description },
+    setInput: ownProps.setInput,
     viewType: ownProps.viewType
   }
 
