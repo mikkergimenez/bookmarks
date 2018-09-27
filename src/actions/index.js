@@ -10,10 +10,11 @@ export function setCSRF(csrf) {
   }
 }
 
-export function setInput(input) {
+export function setInputType(input, noteObj) {
   return {
     type: SET_INPUT,
-    input
+    input,
+    noteObj
   }
 }
 

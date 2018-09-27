@@ -5,6 +5,7 @@ class ListStyle extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id:           this.props.id,
       description:  this.props.description.__html,
       editing:      false,
       title:        this.props.title,
@@ -79,7 +80,7 @@ class ListStyle extends Component {
     if (this.state.editing) {
       editDeleteButtons = (
         <div>
-          <span><a data-toggle="tooltip" title="Hooray!" onClick={() => this.props.setInput("note", this.props)} className="actions" href=""><i className="fa fa-file" aria-hidden="true"></i></a></span>
+          <span><a data-toggle="tooltip" title="Hooray!" onClick={(ev) => this.props.setInputType(ev, "note", this.props)} href={"#/bookmark/" + this.state._id} className="actions" href=""><i className="fa fa-file" aria-hidden="true"></i></a></span>
           <span><a data-toggle="tooltip" title="Hooray!" onClick={this.closeEdit} className="actions" href=""><i className="fa fa-times" aria-hidden="true"></i></a></span>
         </div>
       );

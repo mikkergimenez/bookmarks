@@ -22,12 +22,13 @@ var configReducer = function (state = initialState, action) {
         cachedNote: ""
       });
     case 'SET_INPUT':
-      console.log("Setting Input to " + action.filter);
       return Object.assign({}, state, {
-        input: action.input
+        input: action.input,
+        cachedTitle: action.noteObj.title,
+        cachedNote: action.noteObj.description.__html,
+        currentID: action.noteObj.id
       });
     case 'SET_FILTER':
-      console.log("Setting Filter to " + action.filter);
       return Object.assign({}, state, {
         filter: action.filter
       });

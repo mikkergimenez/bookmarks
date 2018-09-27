@@ -19,9 +19,8 @@ module.exports = {
         }
       }, {
         test: /\.styl$/,
-        loader: 'css-loader!stylus-loader?paths=node_modules/stylus/'
+        loader: 'style-loader!css-loader!stylus-loader?paths=node_modules/stylus/'
       },
-      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
     ]
   },
   resolve: {

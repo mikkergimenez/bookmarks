@@ -16,8 +16,9 @@ function compare(a,b) {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentID: state.config.currentID,
-    cachedNote: state.config.cachedNote || ""
+    currentID:    state.config.currentID,
+    cachedTitle:  state.config.cachedTitle || "",
+    cachedNote:   state.config.cachedNote || ""
   }
 }
 

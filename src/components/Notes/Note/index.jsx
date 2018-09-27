@@ -16,16 +16,16 @@ const mapStateToProps = (state, ownProps) => {
 
   var formatter = factory.createFormatter(type, ownProps.note, ownProps.viewType)
   return {
+    id: ownProps.note._id,
     tags: formatter.tags,
     text: { __html: formatter.text },
     type: formatter.type,
     title: formatter.title,
     domain: ownProps.note.domain,
     description: { __html: formatter.description },
-    setInput: ownProps.setInput,
+    setInputType: ownProps.setInputType,
     viewType: ownProps.viewType
   }
-
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

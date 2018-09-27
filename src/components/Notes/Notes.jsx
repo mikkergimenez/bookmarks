@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Note from './Note';
 
-const NotesComponent = ({ notes, setInput, viewType }) => {
+const NotesComponent = ({ notes, setInputType, viewType }) => {
   let msgsjsx = notes.map(function(note, i){
-    return <Note viewType={viewType} setInput={setInput} note={note} key={i} />
+    return <Note viewType={viewType} setInputType={setInputType} note={note} key={i} />
   });
 
   if (viewType == "gallery") {

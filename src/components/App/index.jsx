@@ -2,7 +2,7 @@ import { connect }                      from 'react-redux'
 import { setVisibilityFilter }          from '../../actions/note'
 import AppComponent                     from './Component'
 
-import { setInput, setFilter, setView } from '../../actions/index';
+import { setInputType, setFilter, setView } from '../../actions/index';
 
 //init our state with the built in constructor function
 
@@ -34,11 +34,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    setInput: (input, obj) => {
-      console.log("Setting Input to " + input)
-      console.log("Setting Obj to " + obj)
+    setInputType: (ev, input, obj) => {
+      ev.preventDefault();
       obj = obj || null;
-      dispatch(setInput(input, obj))
+      dispatch(setInputType(input, obj))
     },
     setFilter: (filterVal) => {
       dispatch(setFilter(filterVal))

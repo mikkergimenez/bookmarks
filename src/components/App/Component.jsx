@@ -8,7 +8,7 @@ import Notes                from '../Notes';
 import BookmarkField        from '../BookmarkField';
 import NoteField            from '../NoteField';
 
-const AppComponent = ({ notes, inputType, viewType, filterType, setInput, setFilter, setView }) => {
+const AppComponent = ({ notes, inputType, viewType, filterType, setInputType, setFilter, setView }) => {
 
   var input, notesList, saveButton;
 
@@ -20,14 +20,14 @@ const AppComponent = ({ notes, inputType, viewType, filterType, setInput, setFil
   } else {
     input       = <BookmarkField />;
     saveButton  = <div></div>;
-    notesList   = <Notes viewType={viewType} setInput={setInput} />
+    notesList   = <Notes viewType={viewType} setInputType={setInputType} />
   }
 
   return (
     <div>
       <div className="header">
         <div className="container">
-          <a onClick={() => setInput("bookmark")} href="#/bookmark">bookmark</a> · <a onClick={() => setInput("note")} href="#/note">note</a>
+          <a onClick={() => setInputType("bookmark")} href="#/bookmark">bookmark</a> · <a onClick={() => setInputType("note")} href="#/note">note</a>
           <div className="pull-right">
             {saveButton}
           </div>
@@ -39,6 +39,7 @@ const AppComponent = ({ notes, inputType, viewType, filterType, setInput, setFil
       <div className="bookmark-list">
         <div className="container">
           <center>
+            <a onClick={() => setFilter("")} href="#">all</a> ·&nbsp;
             <a onClick={() => setFilter("url")} href="#">links</a> ·&nbsp;
             <a onClick={() => setFilter("hipchat")} href="#">hipchat</a> ·&nbsp;
             <a onClick={() => setFilter("image")} href="#">images</a> ·&nbsp;
